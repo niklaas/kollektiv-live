@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>kollektiv.live</title>
+
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Grenze+Gotisch:wght@100&family=Josefin+Sans&family=Roboto+Mono:wght@100&family=Roboto+Slab:wght@100;200;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Roboto Slab", serif;
+      }
+    </style>
+  </head>
+  <body class="bg-yellow-50">
+    <div class="flex items-center justify-center h-screen">
+      <div class="flex flex-wrap text-4xl w-full">
+        <div class="w-1/2 text-right font-thin h-16">
+          <span class="bg-yellow-100 px-1">
+            <span id="type-this"></span>
+          </span>
+        </div>
+        <div class="w-1/2 pl-2">
+          <span id="live">.live</span>
+        </div>
+        <div class="w-full text-center text-base font-extralight mt-1">
+          freies digitales Theater
+        </div>
+      </div>
+    </div>
+
+    <!-- https://commons.wikimedia.org/wiki/File:WWS_Typewriter.ogg -->
+    <!-- <audio -->
+    <!--   src="https://upload.wikimedia.org/wikipedia/commons/2/25/WWS_Typewriter.ogg" -->
+    <!--   type="audio/ogg" -->
+    <!-- ></audio> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script>
+      var stringsFonts = [
+        [`Werther`, `'Roboto Mono', monospace`],
+        ["Wilhelm Tell", `'Grenze Gotisch', cursive`],
+        ["Odyssee", `'Josefin Sans', sans-serif`],
+        ["Romeo &amp; Julia", `'Dancing Script', cursive`],
+        ["Kollektiv"],
+      ];
+
+      var strings = stringsFonts.map(([title, font]) => title);
+
+      var options = {
+        strings,
+        startDelay: 1500,
+        backSpeed: 50,
+        typeSpeed: 100,
+        backDelay: 1000,
+        smartBackspace: false,
+        preStringTyped: (pos, self) => {
+          var el = self.el;
+          var font = stringsFonts[pos][1];
+
+          el.style.fontFamily = font || `'Roboto Slab', serif`;
+        },
+        onComplete: () => {
+          var live = document.querySelector("#live");
+          live.classList.add("animate-pulse");
+        },
+      };
+
+      window.onload = () => {
+        var typed = new Typed("#type-this", options);
+      };
+
+      var audio = document.querySelector("audio");
+    </script>
+  </body>
+</html>
