@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <!--
+
+    This page is far from being optimized and just a sketched prorotype by
+
+      me@niklaas.eu
+
+  -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+
     <title>kollektiv.live</title>
 
     <link
@@ -37,13 +45,33 @@
           freies digitales Theater
         </div>
       </div>
-    </div>
 
-    <!-- https://commons.wikimedia.org/wiki/File:WWS_Typewriter.ogg -->
-    <!-- <audio -->
-    <!--   src="https://upload.wikimedia.org/wikipedia/commons/2/25/WWS_Typewriter.ogg" -->
-    <!--   type="audio/ogg" -->
-    <!-- ></audio> -->
+      <div
+        class="absolute inset-x-0 bottom-0 text-center pb-1 text-yellow-500 text-xs font-sans opacity-25"
+      >
+        <span>made with</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="inline-block w-4 h-4 -mt-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
+        </svg>
+        <span
+          >by
+          <a href="https://www.niklaas.eu" class="border-b border-yellow-500"
+            >niklaas</a
+          >
+        </span>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script>
@@ -79,8 +107,6 @@
       window.onload = () => {
         var typed = new Typed("#type-this", options);
       };
-
-      var audio = document.querySelector("audio");
     </script>
   </body>
 </html>
